@@ -3,7 +3,5 @@
 // This prevents Mixed Content (HTTPS -> HTTP) browser errors.
 export const API_BASE = ''
 
-// For WebSockets, we need the exact protocol. Since we use basicSsl, it runs on WSS (WebSocket Secure).
-const WS_PROTOCOL = window.location.protocol === 'https:' ? 'wss:' : 'ws:'
-const WS_HOST = window.location.host
-export const WS_BASE = `${WS_PROTOCOL}//${WS_HOST}/ws`
+// For SockJS, we use the standard http/https protocol — SockJS handles the WebSocket upgrade internally.
+export const WS_BASE = `${window.location.protocol}//${window.location.host}/ws`

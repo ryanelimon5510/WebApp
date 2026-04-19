@@ -36,7 +36,7 @@ public class EnrollmentController {
 
     @PostMapping("/join")
     public ResponseEntity<Enrollment> joinClass(@AuthenticationPrincipal Jwt jwt, @RequestBody Map<String, String> payload) {
-        String classCode = payload.get("classCode");
+        String classCode = payload.get("classCode").toUpperCase();
         UUID studentId = UUID.fromString(jwt.getSubject());
 
         Profile student = profileRepository.findById(studentId)

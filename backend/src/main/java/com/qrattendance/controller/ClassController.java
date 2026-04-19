@@ -37,7 +37,7 @@ public class ClassController {
             
             ClassEntity classEntity = new ClassEntity();
             classEntity.setClassName((String) payload.get("className"));
-            classEntity.setClassCode((String) payload.get("classCode"));
+            classEntity.setClassCode(((String) payload.get("classCode")).toUpperCase());
             classEntity.setTeacher(teacher);
             
             if (payload.get("roomLat") != null) {
